@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elevator 2</title>
+        <link rel="stylesheet" href="matrices.css">
+    </head>
+<body>
+
+<div class="myDiv">
+    <canvas id="screen" width="800" height="450" style="border:3px solid rgb(0, 0, 0);"></canvas>
+    <div class="overlayEle">
+        <canvas id="lvlClear" width="400" height="30"></canvas>
+        <button id="gethelp" class="gethelp">Need some help?</button>
+        <div id="help" class="helpEle">
+            <div class="help-contentEle">
+              <span class="closeEle">&times;</span>
+              <img src="../images/gaussianElim2.png" alt="How to multiply matrices" width="600" height="300">
+            </div>
+          </div>
+        <br>
+        <div class="subDivEle">
+            <h4>Gaussian Elimination</h4>
+            <button id="lvl1" class="levelselect" onclick="levelOne()">Step 1</button>
+            <br>
+            <button id="lvl2" class="levelselect" onclick="levelTwo()">Step 2</button>
+            <br>
+            <button id="lvl3" class="levelselect" onclick="levelThree()">Step 3</button>
+        </div>
+        <div class="livesBox">
+            <ul class="lives">
+                <li class="life">&#129505;</li>
+                <li class="life">&#129505;</li>
+                <li class="life">&#129505;</li>
+            </ul>
+        </div>
+        <div class="livesBox">
+        <ul class="lives">
+            <li id="life3" class="lifeLost3">&#128420;</li>
+            <li id="life2" class="lifeLost2">&#128420;</li>
+            <li id="life1" class="lifeLost1">&#128420;</li>
+        </ul>
+       </div>
+        <div id="topicClear" class = "topicComplete"></div>
+        <button class="back" onclick="homePage()"><span>Return to Topic Select</span></button>
+        <div class="levelBorder" id="border1">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                
+                <div class="qGaussian">
+                    <p>&xscr; - &#120014; + &zscr; = 8</p>
+                    <br>
+                    <p>2&xscr; + 3&#120014; - &zscr; = -2</p>
+                    <br>
+                    <p>3&xscr; - 2&#120014; - 9&zscr; = 9</p>
+                </div>
+                
+                <div id="answerBox1" class="answerG" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <br>
+
+            
+
+                <button id="submit1" class="submitAnswer" onclick="checkAnswer1()">Open doors</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl1ans1" class="matrix32" draggable="true" ondragstart="drag(event)" style="background-color: #bb00cc">
+                        <div class="matrixItem">&xscr;<sub>1</sub></div>
+                        <div class="matrixItem">8</div>
+                        <div class="matrixItem">&xscr;<sub>2</sub></div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">&xscr;<sub>3</sub></div>
+                        <div class="matrixItem">9</div>
+                    </div>
+
+                    <div id="lvl1ans2" class="matrix34" draggable="true" ondragstart="drag(event)" style="background-color: #cc7700">
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">&xscr;<sub>1</sub></div>
+                        <div class="matrixItem">2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">-1</div>
+                        <div class="matrixItem">&xscr;<sub>2</sub></div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">-9</div>
+                        <div class="matrixItem">&xscr;<sub>3</sub></div>
+                    </div>
+
+                    <div id="lvl1ans3" class="matrix34" draggable="true" ondragstart="drag(event)" style="background-color: #00cc03">
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">8</div>
+                        <div class="matrixItem">2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">-9</div>
+                        <div class="matrixItem">9</div>
+                    </div>
+
+                    <div id="lvl1ans4" class="matrix33" draggable="true" ondragstart="drag(event)" style="background-color: #0018cc">
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">9</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="levelBorder" id="border2">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                <h3 id="restrict1" class="placeholder">Complete step 1 then you can move onto this step</h3>
+                <div id="step2" style="display:none;">
+                    <div class="matrix34" style="background-color: #54a5c2; padding: 0%;margin: 2px; ">
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">8</div>
+                        <div class="matrixItem">2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">3</div>
+                        <div class="matrixItem">-2</div>
+                        <div class="matrixItem">-9</div>
+                        <div class="matrixItem">9</div>
+                    </div>
+                    <div class="matrix31" style="padding: 0%;margin: 2px;">
+                      <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+                      <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+                      <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>3</sub></div>
+                    </div>
+
+                    <p class="placeholder" style="font-size: xx-large;">&#10230;</p>
+                    <p class="placeholder">?</p>
+                
+                <div id="answerBox2" class="rowG" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+                <div class="matrix34" style="background-color: #a5c254; padding: 0%;margin: 2px; position:absolute; top:5px; left:330px ">
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">-1</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">8</div>
+                    <div class="matrixItem">0</div>
+                    <div class="matrixItem">?</div>
+                    <div class="matrixItem">?</div>
+                    <div class="matrixItem">?</div>
+                    <div class="matrixItem">3</div>
+                    <div class="matrixItem">-2</div>
+                    <div class="matrixItem">-9</div>
+                    <div class="matrixItem">9</div>
+                </div>
+                <br>
+                </div>
+            
+                <div id="ques2" style="display:none; position:absolute; left:5px;top:0px;">
+                <button id="submit2" class="submitAnswer" onclick="checkAnswer2()">Check It</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl2ans1" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #bb00cc;">
+                    <p>3R<sub>2</sub> - R<sub>1</sub></p>
+                    </div>
+
+                    <div id="lvl2ans2" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #e55465;">
+                        <p>3R<sub>1</sub> - R<sub>2</sub></p> 
+                    </div>
+
+                    <div id="lvl2ans3" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54e598; ">
+                        <p>2R<sub>1</sub> - R<sub>2</sub></p>
+                    </div>
+
+                    <div id="lvl2ans4" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54dee5; ">
+                        <p>R<sub>2</sub> - 2R<sub>1</sub></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2a" style="display:none; position:absolute; left:5px; top:150px;">
+                <div class="matrix34" style="background-color: #a5c254; padding: 0%;margin: 2px; position:absolute; top:5px; left:0px ">
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">-1</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">8</div>
+                    <div class="matrixItem">0</div>
+                    <div class="matrixItem">5</div>
+                    <div class="matrixItem">-3</div>
+                    <div class="matrixItem">-18</div>
+                    <div class="matrixItem">3</div>
+                    <div class="matrixItem">-2</div>
+                    <div class="matrixItem">-9</div>
+                    <div class="matrixItem">9</div>
+                </div>
+                <div class="matrix31" style="padding: 0%;margin: 2px; position: absolute; top:0px; left:140px;">
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>3</sub></div>
+                </div>
+
+                <p class="placeholder" style="font-size: xx-large;">&#10230;</p>
+                <p class="placeholder">?</p>
+            
+            <div id="answerBox2a" class="rowG" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+            <div class="matrix34" style="background-color: #b254c2; padding: 0%;margin: 2px; position:absolute; top:5px; left:330px ">
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-1</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">8</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">5</div>
+                <div class="matrixItem">-3</div>
+                <div class="matrixItem">-18</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+            </div>
+            <br>
+            </div>
+
+            <div id="ques2a" style="display:none; position:absolute; left:5px;top:150px;">
+                <button id="submit2a" class="submitAnswer" style="top:100px; left:520px;" onclick="checkAnswer2a()">Check It</button>
+                <div id="options" class="optionBox" style="height:80px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl2aans1" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #bb00cc;">
+                    <p>3R<sub>1</sub> - R<sub>3</sub></p>
+                    </div>
+
+                    <div id="lvl2aans2" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #e55465;">
+                        <p>R<sub>3</sub> - R<sub>2</sub></p> 
+                    </div>
+
+                    <div id="lvl2aans3" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54e598; ">
+                        <p>R<sub>3</sub> - 3R<sub>1</sub></p>
+                    </div>
+
+                    <div id="lvl2aans4" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54dee5; ">
+                        <p>R<sub>1</sub> - R<sub>3</sub></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2b" style="display:none;">
+                <div class="matrix34" style="background-color: #b254c2; padding: 0%;margin: 2px; ">
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-1</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">8</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">5</div>
+                <div class="matrixItem">-3</div>
+                <div class="matrixItem">-18</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-12</div>
+                <div class="matrixItem">-15</div>
+                </div>
+                <div class="matrix31" style="padding: 0%;margin: 2px;">
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>3</sub></div>
+                </div>
+
+                <p class="placeholder" style="font-size: xx-large;">&#10230;</p>
+                <p class="placeholder">?</p>
+            
+            <div id="answerBox2b" class="rowG" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+            <div id="2bques" class="matrix34" style="background-color: #5d54c2; padding: 0%;margin: 2px; position:absolute; top:5px; left:330px;">
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+                </div>
+
+
+            <div id="2bans" class="matrix34" style="background-color: #5d54c2; padding: 0%;margin: 2px; display:none; position:absolute; top:5px; left:330px;">
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">-1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">8</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">-12</div>
+            <div class="matrixItem">-15</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">5</div>
+            <div class="matrixItem">-3</div>
+            <div class="matrixItem">-18</div>
+            </div>
+            <br>
+            </div>
+
+            <div id="ques2b" style="display:none; position:absolute; left:5px;top:0px;">
+                <button id="submit2b" class="submitAnswer" onclick="checkAnswer2b()">Check It</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl2bans1" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #bb00cc;">
+                    <p>R<sub>2</sub> - R<sub>1</sub></p>
+                    </div>
+
+                    <div id="lvl2bans2" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #e55465;">
+                        <p>R<sub>1</sub> &#8596; R<sub>2</sub></p> 
+                    </div>
+
+                    <div id="lvl2bans3" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54e598; ">
+                        <p>R<sub>2</sub> &#8596; R<sub>3</sub></p>
+                    </div>
+
+                    <div id="lvl2bans4" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54dee5; ">
+                        <p>R<sub>3</sub> - 2R<sub>2</sub></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step2c" style="display:none; position:absolute; left:5px; top:150px;">
+                <div class="matrix34" style="background-color: #5d54c2; padding: 0%;margin: 2px; position:absolute; top:5px; left:0px ">
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">-1</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">8</div>
+                    <div class="matrixItem">0</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">-12</div>
+                    <div class="matrixItem">-15</div>
+                    <div class="matrixItem">0</div>
+                    <div class="matrixItem">5</div>
+                    <div class="matrixItem">-3</div>
+                    <div class="matrixItem">-18</div>
+                </div>
+                <div class="matrix31" style="padding: 0%;margin: 2px; position: absolute; top:0px; left:140px;">
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+                  <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>3</sub></div>
+                </div>
+
+                <p class="placeholder" style="font-size: xx-large;">&#10230;</p>
+                <p class="placeholder">?</p>
+            
+            <div id="answerBox2c" class="rowG" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+            <div id="2cques" class="matrix34" style="background-color: #c25454; padding: 0%;margin: 2px; position:absolute; top:5px; left:330px ">
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-1</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">8</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-12</div>
+                <div class="matrixItem">-15</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">?</div>
+                <div class="matrixItem">?</div>
+            </div>
+
+            <div id="2cans" class="matrix34" style="background-color: #c25454; padding: 0%;margin: 2px; position:absolute; top:5px; left:330px; display:none; ">
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-1</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">8</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">1</div>
+                <div class="matrixItem">-12</div>
+                <div class="matrixItem">-15</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">0</div>
+                <div class="matrixItem">57</div>
+                <div class="matrixItem">57</div>
+            </div>
+            <br>
+            </div>
+
+            <div id="ques2c" style="display:none; position:absolute; left:5px;top:150px;">
+                <button id="submit2c" class="submitAnswer" style="top:100px; left:520px;" onclick="checkAnswer2c()">Open Doors</button>
+                <div id="options" class="optionBox" style="height:80px;" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl2cans1" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #bb00cc;">
+                    <p>5R<sub>1</sub> + R<sub>3</sub></p>
+                    </div>
+
+                    <div id="lvl2cans2" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #e55465;">
+                        <p>R<sub>3</sub> - 5R<sub>1</sub></p> 
+                    </div>
+
+                    <div id="lvl2cans3" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54e598; ">
+                        <p>5R<sub>2</sub> + R<sub>1</sub></p>
+                    </div>
+
+                    <div id="lvl2cans4" class="rowOp" draggable="true" ondragstart="drag(event)" style="border-color: #54dee5; ">
+                        <p>R<sub>3</sub> - 5R<sub>2</sub></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+
+        <div class="levelBorder" id="border3">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                <h3 id="restrict2" class="placeholder">Complete the previous steps tackle this step</h3>
+                <div id="step3" style="display: none;">
+
+                    <div class="matrix34" style="background-color: #c25454; padding: 0%;margin: 2px;">
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-1</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">8</div>
+                        <div class="matrixItem">0</div>
+                        <div class="matrixItem">1</div>
+                        <div class="matrixItem">-12</div>
+                        <div class="matrixItem">-15</div>
+                        <div class="matrixItem">0</div>
+                        <div class="matrixItem">0</div>
+                        <div class="matrixItem">57</div>
+                        <div class="matrixItem">57</div>
+                    </div>
+                    <div class="qGaussian" style="text-shadow: none; position: absolute; top: 5px; left:200px; padding: 10px; width:300px">
+                        <p><input type="text" class="userInput" id="lvl3Input1a" name="lvl3Input1a">&xscr; + <input type="text" class="userInput" id="lvl3Input1b" name="lvl3Input1b">&#120014; + <input type="text" class="userInput" id="lvl3Input1c" name="lvl3Input1c">&zscr; = <input type="text" class="userInput" id="lvl3Input1d" name="lvl3Input1d"></p><br>
+                        <p><input type="text" class="userInput" id="lvl3Input2a" name="lvl3Input2a">&xscr; + <input type="text" class="userInput" id="lvl3Input2b" name="lvl3Input2b">&#120014; + <input type="text" class="userInput" id="lvl3Input2c" name="lvl3Input2c">&zscr; = <input type="text" class="userInput" id="lvl3Input2d" name="lvl3Input2d"></p><br>
+                        <p><input type="text" class="userInput" id="lvl3Input3a" name="lvl3Input3a">&xscr; + <input type="text" class="userInput" id="lvl3Input3b" name="lvl3Input3b">&#120014; + <input type="text" class="userInput" id="lvl3Input3c" name="lvl3Input3c">&zscr; = <input type="text" class="userInput" id="lvl3Input3d" name="lvl3Input3d"></p>
+              
+                    </div>
+                <br>
+                </div>
+
+                <div id="ques3" style="display:none; position:absolute; left:5px;top:0px;">
+                <button id="submit3" class="submitAnswer" onclick="checkAnswer3()">Check It</button>
+                <button id="submit3a" class="submitAnswer" onclick="checkAnswer3a()" style="display: none;">Open Doors</button>
+                <div id="step3a" class="optionBox" style="display:none;">
+                    <p class="placeholder" style="text-align:left;"> From this system of equations we know 57&zscr; = 57 &#8756;(therefore):
+                        <br> &yscr; = <input type="text" class="userInput" id="lvl3y" name="lvl3y">
+                        <br> &xscr; = <input type="text" class="userInput" id="lvl3x" name="lvl3x">
+                    </p>
+                </div>
+                </div>
+            </div>
+    </div>
+
+</div> 
+
+<script src="../backend/topicGaussian.js"></script>
+
+</body>
+</html>

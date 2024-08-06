@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Verdana, sans-serif; margin:0; height:450px; width:800px; border: 3px solid black;}
+.mySlides {display: none}
+img {vertical-align: middle;}
+</style>
+<link rel="stylesheet" href="matrices.css">
+</head>
+<body>
+
+<div class="howToContainer">
+
+  <div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+        <h4 class="tutText" style= "text-align:center; position:absolute;top: 150px;left:225px;padding:10px; font-size:xx-large;">
+          <strong>Matrix Manor -
+            <br> Working the Elevators
+            <br>MANUAL
+          </strong>
+        </h4> 
+    </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+    <img src="../images/mutiply matrices.png" style="width:600px; height:400px; position:absolute; top:5px; left:100px;">   
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+    <img src="../images/multiply matrices.png" style="width:600px; height:400px; position:absolute; top:5px; left:100px;">
+  </div>
+</div>
+
+<div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+      <img src="../images/multiply matrices2.png" style="width:600px; height:400px; position:absolute; top:5px; left:100px;">
+    </div>
+  </div>
+
+<div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid greenyellow; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Let's try one ourselves!</h2>
+      <div class="levelOverlay" height="430" width="780" style="top:30px">
+      <div class="matrix22" style="background-color: #1e5548">
+        <div class="matrixItem"> 5</div>
+        <div class="matrixItem">2</div>
+        <div class="matrixItem">6</div>
+        <div class="matrixItem">8</div>
+    </div>
+    <span style='font-size:80px; color:whitesmoke;'>&#10761;</span>
+    <div class="matrix12" style="background-color: #4f1414">
+        <div class="matrixItem">3</div>
+        <div class="matrixItem">-1</div>
+    </div>
+    <span style='font-size:80px; color:whitesmoke;'>&#61;</span>
+    <span id="structChoice2" style='display:block; font-size:80px; color:whitesmoke;'>?</span>
+    </div>
+
+    <br><br><br><br><br><br>
+    <p class="tutText">&#8226; Firstly, what will be the structure of this matrix?</p>
+    <p class="hintText">REMEMBER A MATRIX OPERATION 'm&#10761;n' &#10761; 'n&#10761;p' &#61; 'm&#10761;p'</p>
+    <div class="levelOverlay" height="430" width="780" style="top:200px">
+    <div style="border:2px solid wheat; margin-left:40px;">
+    <input type="radio" name="tut2" id="tut2a" value="2x2">
+    <label for="tut2a" class="tutText">2x2</label>
+    <div class="matrix22" style="background-color: #27551e">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <div style="border:2px solid wheat; ">
+    <input type="radio" name="tut2" id="tut2b" value="1x2">
+    <label for="tut2b" class="tutText">1x2</label>
+    <div class="matrix12" style="background-color: #55321e">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <div style="border:2px solid wheat; ">
+    <input type="radio" name="tut2" id="tut2c" value="2x1">
+    <label for="tut2c" class="tutText">2x1</label>
+    <div class="matrix21" style="background-color: #551e51">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <div style="border:2px solid wheat; ">
+      <input type="radio" name="tut2" id="tut2d" value="none">
+      <label for="tut2d" class="tutText">None</label>
+      </div>
+
+    <button id="structCheck2" onclick="checkTut2()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+    </div>
+    
+    <br><br><br><br><br><br><br>
+    <p id="hidTutText3" class="tutText" style ="display:none;">&#8226; Thats right as n needs to be equal in both, it isn't here</p>
+    <p id="hidHintText3"  class="hintText" style="display:none">This is an invalid equation</p>
+    <p id="hidTutText4" class="tutText" style ="display:none;  color: aquamarine;">&#8226; You know your stuff! Feel free to go on and try the other equations</p>
+
+</div>
+  </div>
+
+
+  <div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid greenyellow; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Let's try one an actual one now ourselves!</h2>
+      <div class="levelOverlay" height="430" width="780" style="top:30px">
+      <div class="matrix22" style="background-color: #1e5548">
+        <div class="matrixItem"> 5</div>
+        <div class="matrixItem">2</div>
+        <div class="matrixItem">6</div>
+        <div class="matrixItem">8</div>
+    </div>
+    <span style='font-size:80px; color:whitesmoke;'>&#10761;</span>
+    <div class="matrix21" style="background-color: #4f1414">
+        <div class="matrixItem">3</div>
+        <div class="matrixItem">-1</div>
+    </div>
+    <span style='font-size:80px; color:whitesmoke;'>&#61;</span>
+    <span id="structChoice" style='display:block; font-size:80px; color:whitesmoke;'>?</span>
+    <div id="correctStruct" class="matrix21" style="display:none; background-color:#551e51;">
+        <div class="matrixItem"><input type="text" class="userInput" id="tutInput1a" name="tutInput1a"></div>
+        <div class="matrixItem"><input type="text"class="userInput" id="tutInput1b" name="tutInput1b"></div>
+    </div>
+    </div>
+    <button id="ansCheck1" onclick="checkTutAns1()" style="position:absolute; top:75px; left:680px; width:80px; display:none">Check it</button>
+
+    <br><br><br><br><br><br>
+    <p class="tutText">&#8226; Firstly, what will be the structure of this matrix?</p>
+    <p class="hintText">REMEMBER A MATRIX OPERATION 'm&#10761;n' &#10761; 'n&#10761;p' &#61; 'm&#10761;p'</p>
+    <div class="levelOverlay" height="430" width="780" style="top:200px">
+    <div style="border:2px solid wheat; margin-left:40px;">
+    <input type="radio" name="tut1" id="tut1a" value="2x2">
+    <label for="tut1a" class="tutText">2x2</label>
+    <div class="matrix22" style="background-color: #27551e">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <div style="border:2px solid wheat; ">
+    <input type="radio" name="tut1" id="tut1b" value="1x2">
+    <label for="tut1b" class="tutText">1x2</label>
+    <div class="matrix12" style="background-color: #55321e">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <div style="border:2px solid wheat; ">
+    <input type="radio" name="tut1" id="tut1c" value="2x1">
+    <label for="tut1c" class="tutText">2x1</label>
+    <div class="matrix21" style="background-color: #551e51">
+        <div class="matrixItem"></div>
+        <div class="matrixItem"></div>
+    </div>
+    </div>
+
+    <button id="structCheck" onclick="checkTut1()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+    </div>
+    
+    <br><br><br><br><br><br><br>
+    <p id="hidTutText1" class="tutText" style ="display:none;">&#8226; Now to fill it with the correct values, select a section and type in what should go there.</p>
+    <p id="hidHintText1"  class="hintText" style="display:none">REMEMBER TO USE THE <em>DOT PRODUCT</em> OF THE CORRECT ROWS AND COLUMNS!</p>
+    <p id="hidTutText2" class="tutText" style ="display:none;  color: aquamarine;">&#8226; You know your stuff! Feel free to go on and try the other equations</p>
+
+</div>
+  </div>
+
+
+  <div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+      <div class="tutScroll">
+      <img src="../images/gaussianElim1.png" style="width:800px; height:300px; position:absolute; top:5px; left:10px;">   
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+    <h2 class="tutText">Let us get comfortable with this first concept</h2>
+    <div class="levelOverlay" height="430" width="780" style="top:30px">
+      <div class="qGaussian" style="width:780px; text-align:left; text-shadow: none;">
+        <p>4&xscr; - 3&#120014; = 11</p>
+        <br>
+        <p>3&xscr; + 2&#120014;= 4</p>
+    </div>
+    </div>
+
+    <br><br><br><br>
+    <p class="tutText">&#8226; What is the coefficient matrix for this set of equations?</p>
+    <div class="levelOverlay" height="430" width="780" style="top:140px">
+      
+      <div style="border:2px solid wheat; margin-left: 40px;">
+        <input type="radio" name="tut3" id="tut3a" value="1x2">
+        <label for="tut3a" class="tutText">
+          <div class="matrix23" style="background-color: #54a5c2;">
+            <div class="matrixItem">4</div>
+            <div class="matrixItem">-3</div>
+            <div class="matrixItem">11</div>
+            <div class="matrixItem">3</div>
+            <div class="matrixItem">2</div>
+            <div class="matrixItem">4</div>
+          </div>
+        </label>
+      </div>
+
+
+      <div style="border:2px solid wheat; ">
+        <input type="radio" name="tut3" id="tut3b" value="1x2">
+        <label for="tut3b" class="tutText">
+        <div class="matrix22" style="background-color: #a754c2">
+        <div class="matrixItem">4</div>
+        <div class="matrixItem">-3</div>
+        <div class="matrixItem">3</div>
+        <div class="matrixItem">2</div>
+      </div>
+        </label>
+    </div>
+
+    <button id="tut3Check" onclick="checkTut3()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br>
+    <p id="hidTutText5" class="tutText" style ="display:none;">&#8226; Well done! And I'm sure you already know, but the other option would be this set of equation's <em>augmented matrix</em></em></p>
+    <p id="hidHintText5"  class="hintText" style="display:none">REMEMBER THE DIFFERENCE BETWEEN THE COEFFICIENT AND AUGMENTED MATRICES</p>
+    <p id="hidTutText6" class="tutText" style="display:none">Go ahead and tackle the next challenge of this first concept</p>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+    <h2 class="tutText">Let us try just one more task to ensure confidence on this aspect</h2>
+    <div class="levelOverlay" height="430" width="780" style="top:30px">
+      <div class="matrix34" style="background-color: #54a5c2;">
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">-1</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">5</div>
+        <div class="matrixItem">2</div>
+        <div class="matrixItem">-1</div>
+        <div class="matrixItem">3</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">0</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">-9</div>
+      </div>
+  </div>
+
+
+    <br><br><br><br><br><br><br>
+    <p class="tutText">&#8226; What is the correct system of equations for this augmented matrix?</p>
+    <div class="levelOverlay" height="430" width="780" style="top:200px">
+      
+      <div style="border:2px solid wheat; margin-left: 40px;">
+        <div class="qGaussian" style="text-shadow: none; position: relative; top: 0%; left:0%; padding: 10px; width:300px">
+          <p><input type="text" class="userInput" id="tut4Input1a" name="tut4Input1a">&xscr; + <input type="text" class="userInput" id="tut4Input1b" name="tut4Input1b">&#120014; + <input type="text" class="userInput" id="tut4Input1c" name="tut4Input1c">&zscr; = <input type="text" class="userInput" id="tut4Input1d" name="tut4Input1d"></p><br>
+          <p><input type="text" class="userInput" id="tut4Input2a" name="tut4Input2a">&xscr; + <input type="text" class="userInput" id="tut4Input2b" name="tut4Input2b">&#120014; + <input type="text" class="userInput" id="tut4Input2c" name="tut4Input2c">&zscr; = <input type="text" class="userInput" id="tut4Input2d" name="tut4Input2d"></p><br>
+          <p><input type="text" class="userInput" id="tut4Input3a" name="tut4Input3a">&xscr; + <input type="text" class="userInput" id="tut4Input3b" name="tut4Input3b">&#120014; + <input type="text" class="userInput" id="tut4Input3c" name="tut4Input3c">&zscr; = <input type="text" class="userInput" id="tut4Input3d" name="tut4Input3d"></p>
+
+      </div>
+      </div>
+
+    <button id="tut4Check" onclick="checkTut4()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br>
+    <p id="hidTutText7" class="tutText" style ="display:none;">&#8226; Well done! You're a natural at this, carry on learning about this matrix equation</p>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+    <div class="tutScroll">
+    <img src="../images/gaussianElim2.png" style="width:800px; height:350px; position:absolute; top:5px; left:10px;">   
+    </div>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+    <h2 class="tutText">This next bit can look quite confusing at first, but lets try an example</h2>
+    <div class="levelOverlay" height="430" width="780" style="top:30px">
+      <div class="qGaussian" style="width:780px; text-align:left; text-shadow: none;">
+        <p>4&xscr; + 3&#120014; = 11</p>
+        <br>
+        <p>&xscr; - 3&#120014; = -1</p>
+    </div>
+  </div>
+
+    <br><br><br>
+    <p class="tutText">&#8226; What is the augmented matrix for this set of equations?</p>
+    <div class="levelOverlay" height="430" width="780" style="top:120px">
+      
+      <div style="border:2px solid wheat; margin-left: 40px; top:120px;">
+          <div class="matrix23" style="background-color: #54a5c2; padding: 0%;margin: 2px;">
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inputa" name="tut5Inputa"></div>
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inputb" name="tut5Inputb"></div>
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inputc" name="tut5Inputc"></div>
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inputd" name="tut5Inputd"></div>
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inpute" name="tut5Inpute"></div>
+            <div class="matrixItem"><input type="text" class="userInput" id="tut5Inputf" name="tut5Inputf"></div>
+          </div>
+      </div>
+
+      <button id="tut5Check" onclick="checkTut5()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+      </div>
+
+    <br><br><br><br><br>
+    <p id="hidTutText8" class="tutText" style ="display:none;">&#8226; Okay so we got the first part down, well done! </p>
+    <p id="hidHintText6"  class="hintText" style="display:none">Now this next part you may need a pen and paper for.</p>
+    <p id="hidTutText9" class="tutText" style="display:none">&#8226;We have to figure out the correct row operations to use and the order in which we perform them to achieve this matrix's row-echelon form:
+      <div id="tut5struct"  class="matrix23" style="background-color: #54a5c2; display: none;">
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">?</div>
+        <div class="matrixItem">?</div>
+        <div class="matrixItem">?</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">?</div>
+      </div>
+    </p>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+    <h2 class="tutText">The Row-Echelon Form</h2>
+    <div class="levelOverlay" height="350" width="780" style="top:30px">
+      <div class="qGaussian" style="width:780px; text-align:left; text-shadow: none;">
+        <p>4&xscr; + 3&#120014; = 11</p>
+        <br>
+        <p>&xscr; - 3&#120014; = -1</p>
+    </div>
+  </div>
+  
+
+    <br><br><br>
+    <p class="tutText">&#8226; Now to get this matrix into it's row-echelon form, we use row operations to turn the first digit of the first row into a 1</p>
+
+  </div>
+    <div class="levelOverlay" height="430" width="780" style="top:130px">
+      
+      <div style="border:2px solid wheat; margin-left: 40px; display:flex;">
+          <div class="matrix23" style="background-color: #54a5c2; padding: 0%;margin: 2px; ">
+            <div class="matrixItem">4</div>
+            <div class="matrixItem">3</div>
+            <div class="matrixItem">11</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">-3</div>
+            <div class="matrixItem">-1</div>
+          </div>
+          <div class="matrix21" style="padding: 0%;margin: 2px;">
+            <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+            <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+          </div>
+      </div>
+      
+
+      <br><br><br><br>
+      <button id="tut6Hint" onclick="getHint6()" style="position:absolute; left:680px; width:80px; display:block">Help</button>
+      <button id="tut6Hint2" onclick="getHint6b()" style="position:absolute; top:75px; left:680px; width:80px; display:none">More help?</button>
+      <ul>
+    <li id="tut6Hinta"  class="hintText" style="display:none; width:auto;">Each row has been labelled and we can use them to achieve row-echelon form</li>
+    <li id="tut6Hintb"  class="hintText" style="display:none;">The first number in the first row is a 4, so to get this to a 1, we minus 3</li>
+    <li id="tut6Hintc"  class="hintText" style="display:none;">With this knowledge we can perform R<sub>1</sub> - 3R<sub>2</sub></li>
+    </ul>
+
+    <ul id="tut6RowOp1" style="display:none; list-style-type: none; line-height: 155%;">
+      <li style="color:aliceblue; font-size: x-small; line-height: 0%;">R<sub>1</sub> - 3R<sub>2</sub></li>
+      <li style="color:aliceblue; font-size: xxx-large; font-weight: 300; letter-spacing: -10px;">&#10522;&#10230;</li>
+      <li style="color:rgb(255, 166, 251); font-size: x-small; line-height: 0%;">R<sub>1</sub> - <div class="matrix13" style="display: inline-grid; width:0%; height:0%;padding: 0%;margin: 0%;margin-right: 0%;">
+        <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;"> 3</div>
+        <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;">-9</div>
+        <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;">-3</div>
+      </div>
+    </li>
+    </ul>
+
+    <div id="tut6Part2" style="border:2px solid wheat; margin-left: 40px; display:none;">
+      <div class="matrix23" style="background-color: #54a5c2; padding: 0%;margin: 2px; ">
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">12</div>
+        <div class="matrixItem">14</div>
+        <div class="matrixItem">1</div>
+        <div class="matrixItem">-3</div>
+        <div class="matrixItem">-1</div>
+      </div>
+      <div class="matrix21" style="padding: 0%;margin: 2px;">
+        <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+        <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+      </div>
+  </div>
+  </div>
+
+  <div class="levelOverlay" height="430" width="780" style="top:230px">
+    
+    <div id="tut6Opa" style="border:2px solid wheat; margin-left: 40px; margin-right: 10px; display:block;">
+      <input type="radio" name="tut6" id="tut6a" value="R1">
+      <label for="tut6a" class="tutText">
+          <p>R<sub>1</sub> - 3R<sub>2</sub></p>
+      </label>
+    </div>
+
+
+    <div id="tut6Opb" style="border:2px solid wheat; display:block;">
+      <input type="radio" name="tut6" id="tut6b" value="R2">
+      <label for="tut6b" class="tutText">
+          <p>R<sub>2</sub> - 3R<sub>1</sub></p>
+      </label>
+  </div>
+
+  <button id="tut6Check" onclick="checkTut6()" style="position:absolute; top:25px; left:200px; width:80px; display:block">Check it</button>
+
+  <p id="hidTutText10" class="tutText" style="display:none;">&#8226; Now we make the first digit of the second row a zero</p>
+
+  <div id="tut6Ops2">
+  <div id="tut6Op2a" style="border:2px solid wheat; margin-left: 40px; margin-right: 10px; display:none;">
+    <input type="radio" name="tut6" id="tut62a" value="R1">
+    <label for="tut62a" class="tutText">
+        <p>R<sub>2</sub> - 3R<sub>1</sub></p>
+    </label>
+  </div>
+
+
+  <div id="tut6Op2b" style="border:2px solid wheat; display:none;">
+    <input type="radio" name="tut6" id="tut62b" value="R2">
+    <label for="tut62b" class="tutText">
+        <p>R<sub>2</sub> - R<sub>1</sub></p>
+    </label>
+</div>
+</div>
+
+<button id="tut6bCheck" onclick="checkTut6b()" style="position:absolute; top:25px; left:580px; width:80px; display:none">Check it</button>
+
+<ul id="tut6RowOp2" style="display:none; list-style-type: none; line-height: 155%;">
+  <li style="color:aliceblue; font-size: x-small; line-height: 0%;">R<sub>2</sub> - R<sub>1</sub></li>
+  <li style="color:aliceblue; font-size: xxx-large; font-weight: 300; letter-spacing: -10px;">&#10522;&#10230;</li>
+  <li style="color:rgb(255, 166, 251); font-size: x-small; line-height: 0%;">R<sub>2</sub> - <div class="matrix13" style="display: inline-grid; width:0%; height:0%;padding: 0%;margin: 0%;margin-right: 0%;">
+    <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;"> 1</div>
+    <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;">-12</div>
+    <div class="matrixItem" style="color:rgb(255, 166, 251); background-color:transparent; margin: 0%; font-size: x-small; line-height: 0%;">-12</div>
+  </div>
+</li>
+</ul>
+
+<div id="tut6Part2b" style="border:2px solid wheat; margin-left: 40px; display:none;">
+  <div class="matrix23" style="background-color: #54a5c2; padding: 0%;margin: 2px; ">
+    <div class="matrixItem">1</div>
+    <div class="matrixItem">12</div>
+    <div class="matrixItem">14</div>
+    <div class="matrixItem">0</div>
+    <div class="matrixItem">-15</div>
+    <div class="matrixItem">-15</div>
+  </div>
+  <div class="matrix21" style="padding: 0%;margin: 2px;">
+    <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>1</sub></div>
+    <div class="matrixItem" style="color:aliceblue; background-color:transparent; margin: 0%;">R<sub>2</sub></div>
+  </div>
+</div>
+  </div>
+  
+  <div class="levelOverlay" height="150" width="780" style="top:310px">
+    <p id="hidTutText11" class="tutText" style="display:none">&#8226; See row operations aren't that confusing once you get your head around it<br>
+      Move on to see what to do next</p>
+  </div>
+  </div>
+
+
+
+  <div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Back Substitution</h2>
+      <div class="levelOverlay" height="430" width="780" style="top:40px">
+        <div style="border:2px solid wheat; margin-left: 40px; display:block;">
+          <div class="matrix23" style="background-color: #54a5c2; padding: 0%;margin: 2px; ">
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">12</div>
+            <div class="matrixItem">14</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">-15</div>
+            <div class="matrixItem">-15</div>
+          </div>
+        </div>
+    </div>
+  
+      <br><br><br><br><br>
+      <p class="tutText">So if you remember from the previous slides, to acheive row-echelon form you have to have a 1 in every entry down the main diagonal with only zeros below it.
+        <br>In some cases, as we will go through here, you can skip that for the last row.
+      <br>&#8226; Using what we learnt earlier we can we can turn this matrix back into a system of equations.</p>
+      <div class="levelOverlay" height="100" style="top:210px;">
+        <div class="qGaussian" style="text-align:left; text-shadow: none;">
+          <p>1&xscr; + 12&#120014; = 14</p>
+          <br>
+          <p>0&xscr; - 15&#120014; = -15</p>
+      </div>
+      </div>
+  
+      <br><br><br>
+      <p id="hidTutText8" class="tutText">&#8226; With this system we can already infer that <strong>&#120014; = 1</strong>, using the second equation. </p>
+      <p id="hidHintText6"  class="hintText">&#8226;So using this we can work out the value of <strong>&xscr;</strong></p>
+      <div style="border:2px solid wheat; position: absolute; top:330px; left:15px; height:30px; width: 100px;">
+        <div class="qGaussian" style="text-shadow: none; position: relative; text-align:left; top:2px;">
+          <p>&xscr; = <input type="text" class="userInput" id="tut7Input1" name="tut7Input1"></p>
+      </div>
+      </div>
+
+      <button id="tut7Check" onclick="checkTut7()" style="position:absolute; top:340px; left:125px; width:80px;">Check it</button>
+
+      <br><br>
+      <p id="hidTutText12" class="hintText"  style="display:none">With whis we have now solved this system of equations with gaussian elimation.
+        <br> &xscr; and &#120014; equal 2 and 1 respectively.
+        <br> Well done! Feel free to move on to the next section and tackle a different type of matrix equation
+      </p>
+    </div>
+  </div>
+
+
+  <div class="mySlides fade">
+    <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+      <div class="tutScroll">
+      <img src="../images/adjacency1.png" style="width:500px; height:80px; position:absolute; top:5px; left:100px;">   
+      <img src="../images/adjacency2.png" style="width:500px; height:320px; position:absolute; top:85px; left:100px;">  
+      <img src="../images/adjacency3.png" style="width:500px; height:140px; position:absolute; top:405px; left:100px; margin-bottom: 20px;"> 
+      </div>
+    </div>
+  </div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Adjacency Matrices</h2>
+      <img src="../images/adjacencyQ1.png" style="width:150px; height:100px; position:absolute; top:40px; left:10px;">  
+  
+      <br><br><br><br><br><br>
+      <p class="tutText">Here is an undirected, unweighted graph similar to what we had seen in the last slide
+        <br>&#8226; What would be the correct adjacency matrix for this graph?
+      </p>
+      <div class="levelOverlay" height="430" width="780" style="top:200px">
+        <div style="border:2px solid wheat; margin-left:40px;">
+          <input type="radio" name="tut8" id="tut8a">
+          <div class="matrix33" style="background-color: #27551e">
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut8" id="tut8b">
+          <div class="matrix22" style="background-color: #55321e">
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut8" id="tut8c">
+          <div class="matrix33" style="background-color: #551e51">
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+            <input type="radio" name="tut8" id="tut8d">
+            <div class="matrix22" style="background-color: #1e3a55">
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+            </div>
+            </div>
+      
+            <button id="tut8Check" onclick="checkTut8()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+      </div>
+  
+      <br><br><br><br><br><br><br><br><br>
+      <p id="hidTutText13" class="tutText" style ="display:none;">&#8226; Now let's look at what other graphs we can use adjacency matrices to represent</p>
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+    <div class="tutScroll">
+    <img src="../images/adjacency4.png" style="width:700px; height:350px; position:absolute; top:5px; left:20px;">   
+    <img src="../images/adjacency5.png" style="width:700px; height:300px; position:absolute; top:355px; left:20px;">   
+    </div>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Adjacency Matrices</h2>
+      <img src="../images/adjacencyQ2.png" style="width:140px; height:120px; position:absolute; top:35px; left:10px;">  
+  
+      <br><br><br><br><br><br>
+      <p class="tutText">Here is an undirected, weighted graph similar to what we had seen in the last slide
+        <br>&#8226; What would be the correct adjacency matrix for this graph?
+      </p>
+      <div class="levelOverlay" height="430" width="780" style="top:200px">
+        <div style="border:2px solid wheat; margin-left:40px;">
+          <input type="radio" name="tut9" id="tut9a">
+          <div class="matrix33" style="background-color: #27551e">
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">4</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">4</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut9" id="tut9b">
+          <div class="matrix33" style="background-color: #55321e">
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">4</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">4</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut9" id="tut9c">
+          <div class="matrix33" style="background-color: #551e51">
+            <div class="matrixItem">4</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+            <input type="radio" name="tut9" id="tut9d">
+            <div class="matrix22" style="background-color: #1e3a55">
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">4</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+            </div>
+            </div>
+      
+            <button id="tut9Check" onclick="checkTut9()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+      </div>
+  
+      <br><br><br><br><br><br><br><br><br>
+      <p id="hidTutText14" class="tutText" style ="display:none;">&#8226; Now let's look at one last concept before taking on this job</p>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid rgb(122, 50, 255); background-color:rgb(52, 58, 62)">
+    <div class="tutScroll">
+    <img src="../images/adjacency6.png" style="width:700px; height:350px; position:absolute; top:5px; left:20px;">   
+    <img src="../images/adjacency7.png" style="width:700px; height:150px; position:absolute; top:355px; left:20px;">   
+    </div>
+  </div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid red; background-color:rgb(52, 58, 62)">
+      <h2 class="tutText">Adjacency Matrices</h2>
+      <img src="../images/adjacencyQ3.png" style="width:140px; height:120px; position:absolute; top:35px; left:10px;">  
+  
+      <br><br><br><br><br><br>
+      <p class="tutText">Here is an directed, unweighted graph similar to what we had seen in the last slide
+        <br>&#8226; What would be the correct adjacency matrix for this graph?
+      </p>
+      <div class="levelOverlay" height="430" width="780" style="top:200px">
+        <div style="border:2px solid wheat; margin-left:40px;">
+          <input type="radio" name="tut10" id="tut10a">
+          <div class="matrix33" style="background-color: #27551e">
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">1</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut10" id="tut10b">
+          <div class="matrix33" style="background-color: #55321e">
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+          <input type="radio" name="tut10" id="tut10c">
+          <div class="matrix33" style="background-color: #551e51">
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+            <div class="matrixItem">1</div>
+            <div class="matrixItem">0</div>
+          </div>
+          </div>
+      
+          <div style="border:2px solid wheat; ">
+            <input type="radio" name="tut10" id="tut10d">
+            <div class="matrix22" style="background-color: #1e3a55">
+              <div class="matrixItem">1</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">0</div>
+              <div class="matrixItem">1</div>
+            </div>
+            </div>
+      
+            <button id="tut10Check" onclick="checkTut10()" style="position:absolute; top:75px; left:680px; width:80px; display:block">Check it</button>
+      </div>
+  
+      <br><br><br><br><br><br><br><br><br>
+      <p id="hidTutText15" class="tutText" style ="display:none;">It appears you now have all the skills for the job, good luck!</p>
+  </div>
+</div>
+
+
+
+<div class="mySlides fade">
+  <div class="overlay" style="border: 2px solid greenyellow; background-color:rgb(52, 58, 62)">
+    <h4 class="tutText" style= "position: absolute;top: 20px;left:10px;padding:10px; font-size: larger;"><em><strong>If you're comfortable with all the examples that were provided in the manual,
+      I am confident that you are the right person for the job. Just know you have access to the manual at all time from this point forward, its yours, so make sure to use it if necessary,
+      the elevators are quite old so I cannot be sure how stable they are in this state, which leads to the danger of potential electrocution.
+      <br>However, I am sure that you'll find this job a breeze! Good Luck!</strong></em>
+    </h4>
+    <button id="commenceJob" class="commence">Commence Job &#128073;</button>
+  </div>
+</div>
+</div>
+
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="position: absolute; left:150px;">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span>
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span>
+  <span class="dot" onclick="currentSlide(17)"></span>
+  <span class="dot" onclick="currentSlide(18)"></span>
+  <span class="dot" onclick="currentSlide(19)"></span>
+  <span class="dot" onclick="currentSlide(20)"></span>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+
+var start = document.getElementById('commenceJob')
+    start.onclick = function() {  
+    location.href = "elevatorhome.html"
+}
+
+
+function checkTut1() {
+  var x = document.getElementById("tut1c").checked;
+  if(x){
+    alert('That is the correct structure for this equation.\nWell Done! :)');
+    document.getElementById("structChoice").style.display ='none';
+    document.getElementById("structCheck").style.display ='none';
+    document.getElementById('correctStruct').style.display = 'grid';
+    document.getElementById('hidTutText1').style.display = 'block';
+    document.getElementById('hidHintText1').style.display = 'block';
+    document.getElementById('ansCheck1').style.display = 'block';
+    
+  } else {
+    alert('That is unfortunately the wrong structure for this equation :(\nPlease try again.')
+  }
+}
+
+function checkTut2() {
+  var x = document.getElementById("tut2d").checked;
+  if(x){
+    alert('That is the correct structure for this equation.\nWell Done! :)');
+    document.getElementById("structCheck2").style.display ='none';
+    document.getElementById('hidTutText3').style.display = 'block';
+    document.getElementById('hidHintText3').style.display = 'block';
+    document.getElementById('ansCheck4').style.display = 'block';
+    
+  } else {
+    alert('That is unfortunately the wrong structure for this equation :(\nPlease try again.')
+  }
+}
+
+function checkTutAns1() {
+  let correct = 0;
+  let a = document.getElementById("tutInput1a").value;
+  let b = document.getElementById("tutInput1b").value;
+  let w = 13;
+  let x = 10;
+  const isitCorrect =[a,b];
+  const itisCorrect =[w,x];
+
+  if (a != '' && b != '') {
+    for (let i = 0; i < isitCorrect.length; i++) {
+    if(isitCorrect[i] == itisCorrect[i]) {
+      correct++
+      alert(`${i+1} is correct`)
+    } else {
+      alert(`${i+1} is incorrect`)
+    }  
+    }
+
+    if (correct === 2){
+      alert(`You've got it all correct, well done!`);
+      document.getElementById('ansCheck1').style.display = 'none';
+      document.getElementById('hidTutText2').style.display = 'block';
+    } else if (correct === 1) {
+      alert(`Only one value is correct. You're half way there!\nGo through the dot product of each row and column and please try again`)
+    } else if (correct === 0) {
+      alert(`None of the values are correct\nConsider looking through the slides and please try again`)
+    }
+  } else {
+    alert (`Please enter some values and try again`)
+  }
+}
+
+function checkTut3() {
+  var x = document.getElementById("tut3b").checked;
+  if(x){
+    alert('That is the correct structure for this equation.\nWell Done! :)');
+    document.getElementById("tut3Check").style.display ='none';
+    document.getElementById('hidTutText5').style.display = 'block';
+    document.getElementById('hidHintText5').style.display = 'block';
+    document.getElementById('hidTutText6').style.display = 'block';
+    
+  } else {
+    alert('That is incorrect :(\nRead through the question once more and please try again.')
+  }
+}
+
+
+function checkTut4() {
+  let correct = 0;
+
+  let tut41a = document.getElementById("tut4Input1a").value;
+  let tut41b = document.getElementById("tut4Input1b").value;
+  let tut41c = document.getElementById("tut4Input1c").value;
+  let tut41d = document.getElementById("tut4Input1d").value;
+
+  let tut42a = document.getElementById("tut4Input2a").value;
+  let tut42b = document.getElementById("tut4Input2b").value;
+  let tut42c = document.getElementById("tut4Input2c").value;
+  let tut42d = document.getElementById("tut4Input2d").value;
+
+  let tut43a = document.getElementById("tut4Input3a").value;
+  let tut43b = document.getElementById("tut4Input3b").value;
+  let tut43c = document.getElementById("tut4Input3c").value;
+  let tut43d = document.getElementById("tut4Input3d").value;
+
+  const isitCorrect = [tut41a, tut41b, tut41c, tut41d, tut42a, tut42b, tut42c, tut42d, tut43a, tut43b, tut43c, tut43d];
+  const itisCorrect = [1, -1, 1, 5, 2, -1, 3, 1, 0, 1, 1, -9];
+
+  if (tut41a !== '' && tut41b !== '' && tut41c !== '' && tut41d !== '' && tut42a !== '' && tut42b !== '' && tut42c !== '' && tut42d !== '' &&  tut43b !== '' && tut43c !== '' && tut43d !== '') {
+    for (let i = 0; i < isitCorrect.length; i++) {
+      if (isitCorrect[i] == itisCorrect[i]) {
+        correct++;
+        alert(`${i + 1} is correct`);
+      } else {
+        alert(`${i + 1} is incorrect`);
+      }
+    }
+
+    if (correct === 12) {
+      alert(`You've got it all correct, well done!`);
+      document.getElementById('hidTutText7').style.display = 'block';
+      document.getElementById("check4check").style.display = 'none';
+    } else if (correct < 12 && correct >= 8) {
+      alert(`A few values are incorrect. You're nearly there!\nLook through the system of equations once more and try again!`);
+    } else if (correct < 8 && correct >= 4) {
+      alert(`You're on the right track, just around halfway there!\nPlease try again`);
+    } else if (correct < 4 && correct > 0) {
+      alert(`Only a few values are correct\nConsider looking through the slides and please try again`);
+    } else if (correct === 0) {
+      alert(`None of the values are correct\nConsider looking through the slides and please try again`);
+    }
+  } else {
+    alert(`Please enter some values and make sure there is input for all boxes and try again`);
+  }
+}
+
+function checkTut5() {
+  let correct = 0;
+  let a = document.getElementById("tut5Inputa").value;
+  let b = document.getElementById("tut5Inputb").value;
+  let c = document.getElementById("tut5Inputc").value;
+  let d = document.getElementById("tut5Inputd").value;
+  let e = document.getElementById("tut5Inpute").value;
+  let f = document.getElementById("tut5Inputf").value;
+  const isitCorrect =[a,b,c,d,e,f];
+  const itisCorrect =[4,3,11,1,-3,-1];
+
+  if (a != '' && b != '' && c != '' && d != '' && e != '' && f != '') {
+    for (let i = 0; i < isitCorrect.length; i++) {
+    if(isitCorrect[i] == itisCorrect[i]) {
+      correct++
+      alert(`${i+1} is correct`)
+    } else {
+      alert(`${i+1} is incorrect`)
+    }  
+    }
+
+    if (correct === 6){
+      alert(`You've got it all correct, well done!`);
+      document.getElementById('hidTutText8').style.display = 'block';
+      document.getElementById('hidHintText6').style.display = 'block';
+      document.getElementById('hidTutText9').style.display = 'block';
+      document.getElementById('tut5struct').style.display = 'grid';
+      document.getElementById("tut5Check").style.display = 'none';
+    } else if (correct < 6 && correct >= 3) {
+      alert(`You have the majority right. You're around half way there!\nLook through the system of equations once more and try again!`)
+    } else if (correct < 3 && correct > 0)  {
+      alert(`Only a few values are correct\nPlease try again`)
+    } else if (correct === 0) {
+      alert(`None of the values are correct\nConsider looking through the slides and please try again`);
+    }
+  } else {
+    alert (`Please enter some values and try again`)
+  }
+}
+
+function getHint6() {
+  document.getElementById('tut6Hint').style.display = 'none';
+  document.getElementById('tut6Hint2').style.display = 'block';
+  document.getElementById('tut6Hinta').style.display = 'block';
+  document.getElementById('tut6Hintb').style.display = 'block';
+}
+
+function getHint6b() {
+  document.getElementById('tut6Hint2').style.display = 'none';
+  document.getElementById('tut6Hintc').style.display = 'block';
+  }
+
+function checkTut6() {
+  var x = document.getElementById('tut6a').checked;
+
+  if (x) {
+    document.getElementById('tut6Check').style.display = 'none';
+    alert(`That is correct, well done!`)
+    document.getElementById('tut6Hint').style.display = 'none';
+    document.getElementById('tut6Hint2').style.display ='none';
+    document.getElementById('tut6Hinta').style.display = 'none';
+    document.getElementById('tut6Hintb').style.display = 'none';
+    document.getElementById('tut6Hintc').style.display = 'none';
+    document.getElementById('tut6Opa').style.display = 'none';
+    document.getElementById('tut6Opb').style.display = 'none';
+    document.getElementById('tut6RowOp1').style.display = 'block';
+    document.getElementById('hidTutText10').style.display = 'block';
+    document.getElementById('tut6Part2').style.display = 'flex';
+    document.getElementById('tut6Op2a').style.display = 'block';
+    document.getElementById('tut6Op2b').style.display = 'block';
+    document.getElementById('tut6bCheck').style.display = 'block';
+  } else {
+    alert('That unfortunately is not the correct answer, please try again');
+  }
+}
+
+function checkTut6b() {
+  var x = document.getElementById('tut62b').checked;
+
+  if(x) {
+    document.getElementById('tut6bCheck').style.display = 'none';
+    alert(`That is correct, well done!`);
+    document.getElementById('tut6Ops2').style.display = 'none';
+    document.getElementById('tut6Part2b').style.display = 'flex';
+    document.getElementById('tut6RowOp2').style.display = 'block';
+    document.getElementById('hidTutText11').style.display = 'block';
+  } else {
+    alert('That unfortunately is not the correct answer, please try again');
+  }
+}
+
+function checkTut7() {
+  var x = document.getElementById('tut7Input1').value
+
+  if (x == 2) {
+    alert('That is correct, well done!')
+    document.getElementById('tut7Check').style.display = 'none';
+    document.getElementById('hidTutText12').style.display = 'block';
+  } else if (x == '') {
+    alert('Please enter a value and try again');
+  }
+  else {
+    alert('That is wrong, please try again')
+  }
+}
+
+function checkTut8() {
+  var x = document.getElementById('tut8c').checked;
+
+  if (x) {
+    alert(`Well done, that's correct!`);
+    document.getElementById('tut8Check').style.display = 'none';
+    document.getElementById('hidTutText13').style.display = 'block';
+  } else {
+    alert('That is wrong, please try again');
+  }
+}
+
+function checkTut9() {
+  var x = document.getElementById('tut9b').checked;
+
+  if (x) {
+    alert(`Well done, that's correct!`);
+    document.getElementById('tut9Check').style.display = 'none';
+    document.getElementById('hidTutText14').style.display = 'block';
+  } else {
+    alert('That is wrong, please try again');
+  }
+}
+
+function checkTut10() {
+  var x = document.getElementById('tut10b').checked;
+
+  if (x) {
+    alert(`Well done, that's correct!`);
+    document.getElementById('tut10Check').style.display = 'none';
+    document.getElementById('hidTutText15').style.display = 'block';
+  } else {
+    alert('That is wrong, please try again');
+  }
+}
+
+</script>
+
+</body>
+</html> 

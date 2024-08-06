@@ -2,52 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8"  />
-        <title>Serious Game on Matrices</title>
-        <style>
-
-            * {
-                padding: 0;
-                margin: 0;
-            }
-            .myDiv {
-                border: 5px outset #000;
-                background-color: #aed;
-                text-align: center;
-            }
-            canvas {
-                background: #aed;
-                display: block;
-                margin: 0 auto;
-            }
-        </style>
+        <title>Matrix Manor - Serious Game on Matrices</title>
+        <link rel="stylesheet" href="frontend/matrices.css">
     </head>
+
     <body>
         <div class="myDiv">
-            <canvas id ="startMenu" width ="480" height="320">
-            </canvas>
-            <button onclick="homePage()">Start Game</button>
-            <br>
-            <button onclick="draw()">Draw</button>
+            <canvas id ="start" width ="800" height="450" style="background-color:rgb(52, 58, 62); border:3px solid rgb(0, 0, 0);"></canvas>
+            <div class="overlay">
+                <h1 class="tutText" style="position:absolute; top:150px;left:175px;text-align: center; font-size: 75px;"><em><strong>Matrix Manor</strong></em></h1>
+            <button id="gameStart" class="start">Start Game</button>
+        </div>
+        </div>
         </div>
 
 
         <script>
-  const     canvas = document.getElementById("startMenu");
+            const canvas = document.getElementById("start");
             const ctx = canvas.getContext("2d");
 
-            function homePage() {
-                location.href = "home.html";
-            }
+            var start = document.getElementById('gameStart')
 
-            function draw() {
-                ctx.beginPath();
-                ctx.rect(20,40,50,50);
-                ctx.fillStyle = "#ff0000";
-                ctx.fill();
-                ctx.arc(240,160,20,0, Math.PI * 2, false);
-                ctx.strokeStyle = "green";
-                ctx.stroke();
-                ctx.closepath();
+            start.onclick = function() {  
+                location.href = "frontend/startMenu.html";
             }
         </script>
     </body>

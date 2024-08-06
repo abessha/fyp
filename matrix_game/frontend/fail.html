@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+        <meta charset="utf-8"  />
+        <title>Matrix Manor - FAILED</title>
+        <link rel="stylesheet" href="matrices.css">
+    </head>
+
+    <body>
+        <div class="myDiv">
+            <canvas id ="start" width ="800" height="450" style="border:3px solid rgb(0, 0, 0); background-color: rgb(51, 36, 36);"></canvas>
+            <div class="overlay">
+            <div class="deadDiv">YOU DIED</div>
+            <button id="gameRestart" class="start">Return to Menu</button>
+        </div>
+        </div>
+        </div>
+
+
+        <script>
+            const canvas = document.getElementById("start");
+            const ctx = canvas.getContext("2d");
+
+            var start = document.getElementById('gameRestart')
+
+            start.onclick = function() {  
+                location.href = "../index.html"
+            }
+            
+        </script>
+    </body>
+</html>

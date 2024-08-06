@@ -1,0 +1,761 @@
+* {
+    padding: auto;
+    margin: auto;
+}
+.myDiv {
+    position: relative;
+}
+.img {
+    position: absolute;
+    display:none;
+}
+.overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 800px;
+    height: 450px
+}
+.overlayEle {
+    position: absolute;
+    top:2.5px; 
+    left:2.5px;
+}
+.subDiv {
+    text-align:center;
+    color:#ffffff;
+    position: absolute;
+    top: 410px;
+    left: 60px;
+    width: 680px;
+}
+.subDivEle {
+    text-align: left;
+    width: 200px;
+    position: absolute;
+    top:35px; 
+    left:560px;
+}
+
+.start{
+        position:absolute;
+        top: 350px;
+        left:340px;
+}
+
+.assign {
+        position: absolute;
+        top:400px;
+        left:660px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 6px 12px;
+        border: 1px solid #258f39;
+        border-radius: 8px;
+        background: #3ce95c;
+        background: linear-gradient(to bottom, #3ce95c, #258f39);
+        box-shadow: #37d755 0px 0px 20px 0px;
+        text-shadow: #175a24 1px 1px 1px;
+        font: normal normal bold 15px tahoma;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .assign:hover,
+    .assign:focus {
+        border: 1px solid #2eb347;
+        background: #48ff6e;
+        background: linear-gradient(to bottom, #48ff6e, #2cac44);
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .assign:active {
+        background: #258f39;
+        background: linear-gradient(to bottom, #258f39, #258f39);
+    }
+
+
+.startMenu {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0px;
+        top: 0px;
+        width: 805px; /* Full width */
+        height: 455px; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.startText{
+    background-color: #fefefe;
+    margin: 15px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 700px; /* Could be more or less, depending on screen size */
+}
+.help {
+    display:none;
+    text-align: center;
+    color: rgb(255, 239, 239);
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 2px;
+    position:absolute;
+    top: 0px;
+    left:0px;
+    height: 450px;
+    width:800px;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.help-content {
+background-color: #000000;
+position:absolute;
+margin: 15px auto; /* 15% from the top and centered */
+padding: 20px;
+border: 1px solid #888;
+top: 200px;
+left:50px;
+width: 600px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+color: #ffffff;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.closeEle {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+
+.close:hover,
+.close:focus {
+color: rgb(255, 0, 0);
+text-decoration: none;
+cursor: pointer;
+}
+
+.closeEle:hover,
+.closeEle:focus {
+color: rgb(255, 0, 0);
+text-decoration: none;
+cursor: pointer;
+}
+
+.helpEle {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0px;
+    top: 0px;
+    width: 805px; /* Full width */
+    height: 455px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+/* Modal Content/Box */
+.help-contentEle {
+    background-color: #fefefe;
+    margin: 15px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 700px; /* Could be more or less, depending on screen size */
+}
+
+.gethelp {
+    position:absolute;
+    top:5px;
+    left:670px;
+    width: 130px;
+    cursor:pointer;
+}
+
+.levelselect{
+        background-color: #b3b3cb;
+        color: #fff;
+        border: 2px solid #000000;
+        border-radius: 12px;
+        padding: 5px;
+        text-align: center;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+}
+
+.back {
+        position: absolute;
+        left:615px;
+        top:410px;
+        display: inline-block;
+        border-radius: 12px;
+        background-color: #9494b8;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 10px;
+        padding: 10px;
+        width: 175px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+}
+.back:hover {
+        background-color: #666699;
+}
+.back span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+}
+.back span:after {
+        content: '\00ab';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+}
+.back:hover span {
+        padding-left: 25px;
+}
+.back:hover span:after {
+        opacity: 1;
+        right: 125px;
+}
+
+.levelBorder {
+        display: none;
+        background-color: #000000;
+        border-radius: 15px;
+        padding: 5px;
+        width: 485px;
+        height: 385px;
+        position: absolute;
+        top:40px; 
+        left:40px;
+}
+
+
+.levelOverlay {
+        position: absolute;
+        top:5px; 
+        left:5px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+}
+
+.matrix21 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        width: 50px;
+        height: 80px;
+        padding: 3px;
+        margin: 10px;
+        margin-left: 35px;
+        margin-right: 35px;
+}
+
+.matrix22 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        width: 100px;
+        height: 80px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;
+}
+
+.matrix23 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        width: 150px;
+        height: 80px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;
+}
+
+.matrix32 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        width: 100px;
+        height: 120px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;
+}
+
+.matrix14 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto;
+        width: 200px;
+        height: 40px;
+        padding: 2px;
+        margin: 2px;
+        margin-right: 35px;  
+}
+
+.matrix13 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        width: 150px;
+        height: 40px;
+        padding: 2px;
+        margin: 2px;
+        margin-right: 35px;  
+}
+
+.matrix31 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        width: 50px;
+        height: 120px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;  
+}
+
+.matrix12 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        width: 100px;
+        height: 40px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;  
+}
+
+.matrix11 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        width: 50px;
+        height: 40px;
+        padding: 3px;
+        margin: 10px;
+        margin-right: 35px;  
+}
+
+
+.matrixItem {
+        background-color: #fff;
+        border-radius: 10px;
+        padding : 5px;
+        margin: 4px;
+        font-size: 18px;
+        text-align: center;
+        color: #666699;
+}
+
+.userInput {
+        width:25px;
+        color: #000000;
+}
+
+.answer {
+        justify-content: center;
+        width:150px;
+        height:120px;
+        outline: 3px dashed green;
+        margin: 5px 50px;
+        overflow:auto;
+}
+
+.answer3 {
+        justify-content: center;
+        width:130px;
+        height:120px;
+        outline: 3px dashed green;
+        margin: 5px 50px;
+        overflow:auto;
+}
+
+.optionBox {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        position: absolute;
+        outline: 5px solid rgb(255, 255, 255);
+        top: 150px;
+        width: 480px;
+        height:230px;
+        overflow: auto;
+}
+
+.submitAnswer {
+        position: absolute;
+        top:260px; 
+        left:520px;
+}
+
+.qGaussian {
+        position: absolute;
+        height: 100px;
+        width: 220px;
+        left: 10px;
+        top: 15px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        line-height: 1;
+        word-spacing: 5px;
+        font-size:18px;
+        text-shadow: 2px 2px 7px #ffffff;
+}
+
+.answerG {
+        width:  180px;
+        height:130px;
+        outline: 3px dashed green;
+        left: 295px;
+        position: absolute;
+        top:5px;
+        overflow: auto;
+}
+
+.rowG {
+        width: 120px;
+        height:60px;
+        outline: 3px dashed green;
+        position: absolute;
+        top:40px;
+        left: 195px;
+        padding:0%;
+        margin: 0%;
+}
+
+.rowOp {
+        border-radius: 8px;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        padding: 3px;
+        margin: 10px;
+        color:#ffffff;
+        border: 2px solid;
+}
+
+.matrix34 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto;
+        width: 140px;
+        height: 120px;
+        padding: 3px;
+        margin: 5px;
+        
+}
+
+.qAdjacency {
+        position: absolute;
+        height: 100px;
+        left: 40px;
+        top: 15px;
+        overflow: auto;
+}
+
+.matrix33 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        width: 150px;
+        height: 120px;
+        padding: 3px;
+        margin: 5px;
+        
+}
+
+.matrix55 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto;
+        width: 250px;
+        height: 200px;
+        padding: 3px;
+        margin: 5px;
+        
+}
+
+.matrix44 {
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-template-rows: auto auto auto auto;
+        width: 200px;
+        height: 160px;
+        padding: 3px;
+        margin: 5px;
+        
+}
+
+.answerA{
+        width:  180px;
+        height:130px;
+        outline: 3px dashed green;
+        left: 295px;
+        position: absolute;  
+        overflow: auto;
+}
+
+.topicComplete {
+    text-align: left;
+    color: #666699;
+    width: 225px;
+    height:auto;
+    position: absolute;
+    top:200px; 
+    left:565px;
+    outline: 3px solid green;
+}
+
+.livesBox{
+    text-align: right;
+    width: 85px;
+    position: absolute;
+    top:420px; 
+    left:0px;
+}
+.lives{
+        padding:3px;
+}
+.life{
+    display: inline;
+}
+
+.lifeLost1{
+    display: none;
+}
+
+.lifeLost2{
+        display: none;
+    }
+
+.lifeLost3{
+    display: none;
+}
+
+.deadDiv{
+    border: 5px outset rgb(255, 223, 223);
+    background-color: rgb(48, 1, 1);
+    text-align: center;   
+    color:#000000;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 80px;
+    margin: auto;
+    width: 50%;
+    padding:10px;
+    position: absolute;
+    top:0px;
+    left:180px;
+    animation-name: died;
+    animation-duration: 3s;  
+    animation-fill-mode: forwards;
+}
+
+@keyframes died {
+        from {top: 0px;}
+        to {top: 150px; background-color: rgb(176, 0, 0);}
+      }
+
+
+
+/* Slideshow container */
+.howToContainer {
+  width: 800px;
+  height:400px;
+ 
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 27%;
+  left: 0px;
+  width: auto;
+  margin:0px;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(91, 94, 93);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  left: 760px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 800px;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.commence {
+        position: absolute;
+        top:200px;
+        left:300px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding: 6px 12px;
+        border: 1px solid #088d8a;
+        border-radius: 8px;
+        background: #0de5e1;
+        background: linear-gradient(to bottom, #0de5e1, #088d8a);
+        box-shadow: #0cd3d0 0px 0px 20px 0px;
+        text-shadow: #055857 1px 1px 1px;
+        font: normal normal bold 15px tahoma;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .commence:hover,
+    .commence:focus {
+        border: 1px solid #0ab0ad;
+        background: #10ffff;
+        background: linear-gradient(to bottom, #10ffff, #0aa9a6);
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .commence:active {
+        background: #088d8a;
+        background: linear-gradient(to bottom, #088d8a, #088d8a);
+    }
+
+.tutText {
+        color: #eaf9fd;
+        padding: 5px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.hintText {
+        font-weight: bold;
+        padding-left: 7px;
+        color: #b7efff;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.tutScroll {
+        position:absolute;
+        top:5px;
+        left:15px;
+        width:770px;
+        height:400px;
+        overflow: auto;
+}
+
+.dying {
+  display:none;
+  z-index: 3;
+  position: absolute;
+  top:10px;
+  left:200px;
+  width: 400px;
+  height: 400px;
+}
+
+.placeholder {
+        position:absolute;
+        text-align: center;
+        top:auto;
+        left:auto;
+        width:450px;
+        display:block;
+        font-weight: bold;
+        padding-left: 7px;
+        color: #6982ff;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

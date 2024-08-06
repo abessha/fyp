@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Elevator 1</title>
+        <link rel="stylesheet" href="matrices.css">
+    </head>
+<body>
+
+<div class="myDiv">
+    <canvas id="screen" width="800" height="450" style="border:3px solid rgb(0, 0, 0);"></canvas>
+    <div class="overlayEle">
+        <canvas id="lvlClear" width="400" height="30"></canvas>
+        <button id="gethelp" class="gethelp">Need some help?</button>
+        <div id="help" class="helpEle">
+            <div class="help-contentEle">
+              <span class="closeEle">&times;</span>
+              <img src="../images/multiply matrices2.png" alt="How to multiply matrices" width="600" height="400">
+            </div>
+          </div>
+        <br>
+        <div class="subDivEle">
+            <h4>Matrix Multiplications</h4>
+            <button id="lvl1" class="levelselect" onclick="levelOne()">Level 1</button>
+            <br>
+            <button id="lvl2" class="levelselect" onclick="levelTwo()">Level 2</button>
+            <br>
+            <button id="lvl3" class="levelselect" onclick="levelThree()">Level 3</button>
+        </div>
+        <div class="livesBox">
+            <ul class="lives">
+                <li class="life">&#129505;</li>
+                <li class="life">&#129505;</li>
+                <li class="life">&#129505;</li>
+            </ul>
+        </div>
+        <div class="livesBox">
+        <ul class="lives">
+            <li id="life3" class="lifeLost3">&#128420;</li>
+            <li id="life2" class="lifeLost2">&#128420;</li>
+            <li id="life1" class="lifeLost1">&#128420;</li>
+        </ul>
+       </div>
+        <div id="topicClear" class = "topicComplete"></div>
+        <button class="back" onclick="homePage()"><span>Return to Topic Select</span></button>
+        <img id="electrocuted" class="dying" src="../images/dead.png" />
+        <div class="levelBorder" id="border1">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                <div class="matrix22" style="background-color: #23c8a2">
+                    <div class="matrixItem"> 3</div>
+                    <div class="matrixItem">6</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">-4</div>
+                </div>
+
+                <div class="matrix21" style="background-color: #cc0000">
+                    <div class="matrixItem">5</div>
+                    <div class="matrixItem">2</div>
+                </div>
+
+                <br>
+                <br>
+
+                <div id="answerBox1" class="answer" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <br>
+                <br>
+                <button id="submit1" class="submitAnswer" onclick="checkAnswer1()">Open doors</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl1ans1" class="matrix21" draggable="true" ondragstart="drag(event)" style="background-color: #ffdd00">
+                        <div class="matrixItem">45</div>
+                        <div class="matrixItem">-6</div>
+                    </div>
+
+                    <div id="lvl1ans2" class="matrix22" draggable="true" ondragstart="drag(event)" style="background-color: #ff006f">
+                        <div class="matrixItem">15</div>
+                        <div class="matrixItem">30</div>
+                        <div class="matrixItem">2</div>
+                        <div class="matrixItem">-8</div>
+                    </div>
+
+                    <div id="lvl1ans3" class="matrix22" draggable="true" ondragstart="drag(event)" style="background-color: #822fff">
+                        <div class="matrixItem"> 21</div>
+                        <div class="matrixItem">42</div>
+                        <div class="matrixItem">7</div>
+                        <div class="matrixItem">-28</div>
+                    </div>
+
+                    <div id="lvl1ans4" class="matrix21" draggable="true" ondragstart="drag(event)" style="background-color: #1af4ff">
+                        <div class="matrixItem">27</div>
+                        <div class="matrixItem">-3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="levelBorder" id="border2">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                <div class="matrix31" style="background-color: #bd23c8">
+                    <div class="matrixItem">4</div>
+                    <div class="matrixItem">2</div>
+                    <div class="matrixItem">1</div>
+                </div>
+
+                <div class="matrix13" style="background-color: #fff765; position:absolute; top:40px; left:130px">
+                    <div class="matrixItem">2</div>
+                    <div class="matrixItem">4</div>
+                    <div class="matrixItem">6</div>
+                </div>
+
+                <br>
+                <br>
+
+                <div id="answerBox2" class="answer" style="position:absolute; top:5px; left:285px" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <br>
+                <br>
+                <button id="submit2" class="submitAnswer" onclick="checkAnswer2()">Open doors</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl2ans1" class="matrix23" draggable="true" ondragstart="drag(event)" style="background-color: #00cc77">
+                        <div class="matrixItem"><input type="text" id="2ans1a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans1b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans1c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans1d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans1e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans1f" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl2ans2" class="matrix11" draggable="true" ondragstart="drag(event)" style="background-color: #9cc8ff">
+                        <div class="matrixItem"><input type="text" id="2ans2a" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl2ans3" class="matrix32" draggable="true" ondragstart="drag(event)" style="background-color: #ffed9c">
+                        <div class="matrixItem"><input type="text" id="2ans3a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans3b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans3c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans3d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans3e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans3f" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl2ans4" class="matrix33" draggable="true" ondragstart="drag(event)" style="background-color: #ff9cc2">
+                        <div class="matrixItem"><input type="text" id="2ans4a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4f" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4g" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4h" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="2ans4i" class="userInput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="levelBorder" id="border3">
+            <canvas class="level" height="380" width="485"></canvas>
+            <div class="levelOverlay">
+                <div class="matrix32" style="background-color: #23c870">
+                    <div class="matrixItem">-2</div>
+                    <div class="matrixItem">3</div>
+                    <div class="matrixItem">1</div>
+                    <div class="matrixItem">6</div>
+                    <div class="matrixItem">-8</div>
+                    <div class="matrixItem">-3</div>
+                </div>
+
+                <div class="matrix22" style="background-color: #ff32eb; position:absolute; top:0px; left: 180px;">
+                    <div class="matrixItem">-3</div>
+                    <div class="matrixItem">7</div>
+                    <div class="matrixItem">5</div>
+                    <div class="matrixItem">2</div>
+                </div>
+
+                <br>
+                <br>
+
+                <div id="answerBox3" class="answer3" style="position:absolute; left: 300px" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <br>
+                <br>
+                <button id="submit3" class="submitAnswer" onclick="checkAnswer3()">Open doors</button>
+                <div id="options" class="optionBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="lvl3ans1" class="matrix23" draggable="true" ondragstart="drag(event)" style="background-color: #fff4a9">
+                        <div class="matrixItem"><input type="text" id="3ans1a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans1b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans1c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans1d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans1e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans1f" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl3ans2" class="matrix32" draggable="true" ondragstart="drag(event)" style="background-color: #3e0000">
+                        <div class="matrixItem"><input type="text" id="3ans2a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans2b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans2c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans2d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans2e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans2f" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl3ans3" class="matrix33" draggable="true" ondragstart="drag(event)" style="background-color: #b380ff">
+                        <div class="matrixItem"><input type="text" id="3ans3a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3c" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3d" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3e" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3f" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3g" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3h" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans3i" class="userInput"></div>
+                    </div>
+
+                    <div id="lvl3ans4" class="matrix13" draggable="true" ondragstart="drag(event)" style="background-color: #ffb700">
+                        <div class="matrixItem"><input type="text" id="3ans4a" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans4b" class="userInput"></div>
+                        <div class="matrixItem"><input type="text" id="3ans4c" class="userInput"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div> 
+
+<script src="../backend/topicMultiply.js"></script>
+
+</body>
+</html>

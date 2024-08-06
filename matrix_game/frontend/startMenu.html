@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"  />
+        <title>Matrix Manor - Serious Game on Matrices</title>
+        <link rel="stylesheet" href="matrices.css">
+    </head>
+
+    <body>
+        <div class="myDiv">
+            <canvas id ="start" width ="800" height="450" style="background-color:rgb(52, 58, 62); border:3px solid rgb(0, 0, 0);"></canvas>
+            <div class="overlay">
+            <div id="startMenu" class="startMenu">
+            <div id="startText" class="startText">
+                <p>Hi, thank you for coming on such short notice and welcome to Matrix Manor! Our in-house engineer is preoccupied currently, 
+                    so we'd be very grateful if you could help fix these elevators. It is going to be very different to the usual 
+                    procedure of fixing elevators, if you couldn't tell already the owner of this hotel has a strange obsession with 
+                    matrices, something about his Computer Science days, but I digress. To get the elevator working again you have to
+                    complete some matrix calculations, each elevator is built around a different type of matrix calculation. I 
+                    understand this must be an absurd request but with a very hectic day at the hotel already, none of the other
+                    staff have time to tackle it, and we'll be sure to reward you generously. Our engineer let us know its not too complicated
+                    and you just have to fit in the correct pieces to get the system up and running again. Our owner actually gave your details 
+                    to us, as he knew you have some knowledge in matrices, but no worries if it's been a while for you, our engineer left us a basic
+                    guide to the system when he first built them so you can always check that. Good luck with the job!</p>
+            </div>
+            <button id="assignJob" class="assign">Accept Job &#10004;</button>
+        </div>
+        </div>
+        </div>
+
+
+        <script>
+              const canvas = document.getElementById("start");
+            const ctx = canvas.getContext("2d");
+
+            var start = document.getElementById('assignJob')
+
+            start.onclick = function() {  
+                location.href = "howto.html"
+            }
+            
+        </script>
+    </body>
+</html>
